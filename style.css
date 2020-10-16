@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ff8b3d;
+}
+
 .boxes {
     display: flex;
     width: 100%;
@@ -47,6 +53,7 @@ body.overlay-is-open .overlay {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
+    background-color: #ff8b3d;
 }
 
 body.overlay-is-open .main-ui {
@@ -71,6 +78,46 @@ body.overlay-is-open .main-ui {
 
 .main-ui {
     text-align: center;
-    width: 70%;
+    width: 69%;
     margin: 0 auto;
+}
+
+.problem {
+    font-size: 69px;
+}
+
+.our-field {
+    display: block;
+    margin: 25px auto 25px;
+    font-size: 3rem;
+    width: 20%;
+    border-radius: 10px;
+    border: none;
+}
+
+.submit-btn, .reset-button {
+    padding: 15px 35px;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: #7ecc00;
+    color: white;
+    border: none;
+}
+
+.end-message {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 69px;
+}
+
+.reset-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.status-message {
+    font-size: 32px;
+    color: wheat;
 }
