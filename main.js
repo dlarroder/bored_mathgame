@@ -6,10 +6,14 @@ const mistakesAllowed = document.querySelector(".mistakes-allowed");
 const progressBar = document.querySelector(".progress-inner");
 const endMessage = document.querySelector(".end-message");
 const resetButton = document.querySelector(".reset-button");
+const countdownText = document.querySelector(".countdown");
+
+const problemTimer = setInterval(countdown, 1000);
 
 let state = {
     score: 0,
-    wrongAnswers: 0
+    wrongAnswers: 0,
+    timeleft: 10, //Oops, No cheating 😅
 }
 
 function updateProblem() {
@@ -52,13 +56,17 @@ function handleSubmit(e) {
     } else {
         state.wrongAnswers++;
         mistakesAllowed.textContent = 2 - state.wrongAnswers;
-        problemElement.classList.add("animate-wrong");
-        setTimeout(() => {
-            problemElement.classList.remove("animate-wrong");
-        }, 451);
+        animateWarning();
     }
 
     checkLogic();
+}
+
+function animateWarning() {
+    problemElement.classList.add("animate-warning");
+    setTimeout(() => {
+        problemElement.classList.remove("animate-warning");
+    }, 451);
 }
 
 function checkLogic() {
@@ -75,6 +83,7 @@ function checkLogic() {
     if(state.wrongAnswers == 3) {
         endMessage.textContent = "Sorry! You lost 😞";
         document.body.classList.add("overlay-is-open");
+        state.timeleft = -1;
         setTimeout(() => {
             resetButton.focus(); 
          }, 331);
@@ -88,11 +97,26 @@ function resetGame() {
     updateProblem();
     state.score = 0;
     state.wrongAnswers = 0;
+    state.timeleft = 10;
     pointsNeeded.textContent = 10;
     mistakesAllowed.textContent = 2;
+    countdownText.textContent = state.timeleft + " seconds remaining";
     renderProgressBar();
 }
 
 function renderProgressBar() {
     progressBar.style.transform = `scaleX(${state.score/10})`;
+}
+
+function countdown() {
+    if(state.timeleft == 0){
+        endMessage.textContent = "You ran out of time!😅";
+        document.body.classList.add("overlay-is-open");
+        setTimeout(() => {
+            resetButton.focus(); 
+         }, 331);
+      } else {
+        countdownText.textContent = state.timeleft + " seconds remaining";
+      }
+      state.timeleft -= 1;
 }

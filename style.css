@@ -72,7 +72,7 @@ body.overlay-is-open .main-ui {
     }
 }
 
-.animate-wrong {
+.animate-warning {
     animation: .45s showError;
 }
 
@@ -121,10 +121,11 @@ body.overlay-is-open .main-ui {
 
 .status-message {
     font-size: 32px;
-    color: wheat;
+    color: white;
 }
 
 .countdown {
     color: white;
     font-size: 32px;
+    padding-top: 55px;
 }
