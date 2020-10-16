@@ -123,3 +123,8 @@ body.overlay-is-open .main-ui {
     font-size: 32px;
     color: wheat;
 }
+
+.countdown {
+    color: white;
+    font-size: 32px;
+}
