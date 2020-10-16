@@ -84,6 +84,7 @@ body.overlay-is-open .main-ui {
 
 .problem {
     font-size: 69px;
+    color: white;
 }
 
 .our-field {
@@ -105,6 +106,7 @@ body.overlay-is-open .main-ui {
 }
 
 .end-message {
+    color: white;
     display: block;
     margin-left: auto;
     margin-right: auto;

@@ -73,7 +73,7 @@ function checkLogic() {
 
     // if you lost
     if(state.wrongAnswers == 3) {
-        endMessage.textContent = "Sorry! You lost.";
+        endMessage.textContent = "Sorry! You lost 😞";
         document.body.classList.add("overlay-is-open");
         setTimeout(() => {
             resetButton.focus(); 
